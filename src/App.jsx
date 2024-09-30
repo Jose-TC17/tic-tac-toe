@@ -11,7 +11,7 @@ import "./Index.css";
 // importando constantes
 import { Turns, checkEndGame } from "./constants";
 // importando checkwinner
-import { checkWinner } from "./logic/Table";
+import { checkWinner } from "./logic/Table.js";
 
 import { WinnerModal } from "./components/WinnerModal.jsx";
 import { resetGameStorage, saveGameToStorage } from "./logic/storage/index.js";
@@ -60,8 +60,8 @@ function App() {
         saveGameToStorage(
             {
                 table: newTable,
-                turn: newTurn,
-            }[(table, turn)]
+                turn: newTurn
+            }
         );
 
         // revisar si hay un ganador
@@ -74,6 +74,7 @@ function App() {
             setWinner(false);
         }
     };
+
 
     return (
         <main className="board">
